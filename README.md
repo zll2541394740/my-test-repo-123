@@ -139,6 +139,7 @@ My-test-repo-123
 | data.extracted_indices | array | 是 | 抽取句子在原文中的序号 | 
 
 | model_info | object | 否 | 可选，模型来源与标识 |
+
 **7. 示例说明**
 **能力契约：文本摘要任务 (v0.2.0-final)**
 概述
