@@ -22,7 +22,50 @@ AI互操作性实验项目
 这是一个开放的思想实验成果。欢迎开发者、研究者或任何感兴趣的朋友基于此协议进行探讨、测试或实现。
 
 ---
-*探索AI协作的微小基石，始于一次意外的对话。*# 能力契约：文本摘要任务 (v0.2.0-final)
+*探索AI协作的微小基石，始于一次意外的对话。*# 能力契约：文本摘要任# 能力契约：文本摘要任务 (v0.2.0-final)
+
+## 概述
+本文档定义了“文本摘要”任务的最小互操作性契约。它旨在为不同的大语言模型（LLM）或AI服务提供一个极简、可验证的协作起点。
+
+## 1. 任务类型
+- **`abstractive_summary_v1`**：生成式摘要。模型理解原文后，用新的语言生成简明摘要。
+- **`extractive_summary_v1`**：抽取式摘要。模型从原文中抽取最关键的一个或多个句子组成摘要。
+
+## 2. 通用请求格式
+所有请求必须为JSON格式，并包含以下字段：
+```json
+{
+  "task_type": "abstractive_summary_v1",
+  "input": {
+    "text": "待摘要的完整文本内容...",
+    "params": {
+      "max_length": 150
+    }
+  },
+  "version": "0.2.0-final",
+  "timestamp": "2026-02-08T12:31:54Z",
+  "model_info": {
+    "provider": "可选字段，标识模型提供方",
+    "name": "可选字段，模型名称"
+  }
+}务 (v0.2.0-final)
 
   "timestamp": "2026
+}
+{
+  "task_type": "abstractive_summary_v1",
+  "output": {
+    "summary": "这是模型生成的摘要文本。",
+    "length": 42
+  },
+  "version": "0.2.0-final",
+  "timestamp": "2026-02-08T12:31:55Z"
+}{
+  "task_type": "extractive_summary_v1",
+  "output": {
+    "summary": "这是原文中的第一句关键句。这是第二句。这是第三句。",
+    "extracted_indices": [0, 5, 12]
+  },
+  "version": "0.2.0-final",
+  "timestamp": "2026-02-08T12:31:55Z"
 }
